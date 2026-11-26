@@ -1,0 +1,14 @@
+{
+  "name": "top-tack-safety-shop",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Top Tack Safety Shop: Node server (storefront + API + SQLite on a Railway volume)",
+  "scripts": { "start": "node server/server.mjs", "dev": "node --watch server/server.mjs" },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "nodemailer": "^6.9.16",
+    "sql.js": "^1.10.3"
+  }
+}
