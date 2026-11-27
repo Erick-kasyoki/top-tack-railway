@@ -81,6 +81,7 @@ const server = http.createServer(async (req, res) => {
     }
 
     if (p.endsWith('/')) p += 'index.html';
+    else if (!path.extname(p) && fs.existsSync(path.join(PUBLIC, p + '.html'))) p += '.html'; // clean URLs: /admin -> admin.html, /worker -> worker.html
     const file = path.normalize(path.join(PUBLIC, p));
     if (file !== PUBLIC && !file.startsWith(PUBLIC + path.sep)) { res.writeHead(403); return res.end('Forbidden'); }
     return sendFile(req, res, file, { 'Cache-Control': p.startsWith('/img/') ? 'public, max-age=86400' : 'no-cache' });
